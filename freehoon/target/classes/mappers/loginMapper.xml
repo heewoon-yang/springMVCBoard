@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.freehoon.web.login.loginMapper">
+	<select id="loginCheck" resultType="String">
+		SELECT NAME
+		  FROM TBL_USER A
+		 WHERE A.UID = #{uid}
+		   AND A.PWD = #{pwd}
+	</select>
+	<select id="getLoginInfo" resultType="com.freehoon.web.user.model.UserVO">
+		SELECT 
+				UID
+			  , NAME
+			  , PWD
+			  , EMAIL
+			  , GRADE
+			  , REG_DT
+		  FROM TBL_USER A
+		 WHERE A.UID = #{uid}
+	</select>
+</mapper> 
